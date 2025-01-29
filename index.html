@@ -9,7 +9,31 @@
 </head>
 
 <body>
-  Hello world
+  <h1>Patterned Plywood Calculator</h1>
+  <form>
+    <label for="plywoodThickness">Plywood Thickness (in):</label><br>
+    <input type="number" name="plywoodThickness"><br>
+    <label for="tableSawKerf">Table Saw Kerf (in):</label><br>
+    <input type="number" name="tableSawKerf"><br>
+    <label for="finalPatternThickness">Final Pattern Thickness (in):</label><br>
+    <input type="number" name="finalPatternThickness"><br>
+    <label for="chevronHalfWidth">Chevron Half Width (in):</label><br>
+    <input type="number" name="chevronHalfWidth"><br>
+    <label for="desiredWidthAcrossPattern">Desired Width Across Pattern (in):</label><br>
+    <input type="number" name="desiredWidthAcrossPattern"><br>
+    <label for="desiredLengthWithPattern">Desired Length With Pattern (in):</label><br>
+    <input type="number" name="desiredLengthWithPattern"><br>
+  </form>
+  <button type="button">Calculate</button>
+  <button type="reset">Reset</button>
+  <h2>Calculated Values:</h2>
+  <div id="results">
+      <p>Number of Strips in Chevron Pattern: <span id="stripsInChevron"></span></p>
+      <p>Length of Chevron Strips Needed: <span id="lengthOfChevron"></span></p>
+      <p>Number of Layers in Chevron Strip: <span id="layersInChevron"></span></p>
+      <p>Width Starting: <span id="widthStarting"></span></p>
+      <p>Length Starting: <span id="lengthStarting"></span></p>
+  </div>
   <script src="script.js"></script>
 </body>
 
