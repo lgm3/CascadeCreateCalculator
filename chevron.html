@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Patterned Plywood Calculator - Chevron</title>
+    <link href="chevron.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Patterned Plywood Calculator - Chevron</title>
-  <link href="chevron.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-  <h1>Patterned Plywood Calculator - Chevron</h1>
-  <form>
-    <label for="plywoodThickness">Plywood Thickness (in):</label><br>
-    <input type="number" name="plywoodThickness"><br>
-    <label for="tableSawKerf">Table Saw Kerf (in):</label><br>
-    <input type="number" name="tableSawKerf"><br>
-    <label for="finalPatternThickness">Final Pattern Thickness (in):</label><br>
-    <input type="number" name="finalPatternThickness"><br>
-    <label for="chevronHalfWidth">Chevron Half Width (in):</label><br>
-    <input type="number" name="chevronHalfWidth"><br>
-    <label for="desiredWidthAcrossPattern">Desired Width Across Pattern (in):</label><br>
-    <input type="number" name="desiredWidthAcrossPattern"><br>
-    <label for="desiredLengthWithPattern">Desired Length With Pattern (in):</label><br>
-    <input type="number" name="desiredLengthWithPattern"><br>
-  </form>
-  <button type="button">Calculate</button>
-  <button type="reset">Reset</button>
-  <h2>Calculated Values:</h2>
-  <div id="results">
+  <body>
+    <h1>Patterned Plywood Calculator - Chevron</h1>
+    <form>
+      <label for="plywoodThickness">Plywood Thickness (in):</label><br />
+      <input type="number" name="plywoodThickness" /><br />
+      <label for="tableSawKerf">Table Saw Kerf (in):</label><br />
+      <input type="number" name="tableSawKerf" /><br />
+      <label for="finalPatternThickness">Final Pattern Thickness (in):</label
+      ><br />
+      <input type="number" name="finalPatternThickness" /><br />
+      <label for="chevronHalfWidth">Chevron Half Width (in):</label><br />
+      <input type="number" name="chevronHalfWidth" /><br />
+      <label for="desiredWidthAcrossPattern"
+        >Desired Width Across Pattern (in):</label
+      ><br />
+      <input type="number" name="desiredWidthAcrossPattern" /><br />
+      <label for="desiredLengthWithPattern"
+        >Desired Length With Pattern (in):</label
+      ><br />
+      <input type="number" name="desiredLengthWithPattern" /><br />
+    </form>
+    <button type="button">Calculate</button>
+    <button type="reset">Reset</button>
+    <h2>Calculated Values:</h2>
+    <div id="results">
       <p>Width Starting: <span id="widthStarting"></span></p>
       <p>Length Starting: <span id="lengthStarting"></span></p>
-  </div>
-  <script src="chevron.js"></script>
-</body>
-
+    </div>
+    <script src="chevron.js"></script>
+  </body>
 </html>
