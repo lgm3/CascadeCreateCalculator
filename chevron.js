@@ -40,9 +40,6 @@ window.onload = () => {
       (numberOfStripsInChevronPattern + 1) * Math.sqrt(2 * tableSawKerf ** 2);
 
     // Update the HTML elements
-    stripsInChevronEl.textContent = numberOfStripsInChevronPattern.toFixed(2);
-    lengthOfChevronEl.textContent = lengthOfChevronStripsNeeded.toFixed(2);
-    layersInChevronEl.textContent = numberOfLayersInChevronStrip.toFixed(2);
     widthStartingEl.textContent = widthStarting.toFixed(2);
     lengthStartingEl.textContent = lengthStarting.toFixed(2);
   });
