@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Patterned Plywood Calculator - Hex Group 2 (1 rhombus, 4 triangles)</title>
+    <link href="./styles.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <h1>Patterned Plywood Calculator - Hex Group 2 (1 rhombus, 4 triangles)</h1>
+    <form>
+      <label for="plywoodThickness">Plywood Thickness (in):</label><br />
+      <input type="number" name="plywoodThickness" /><br />
+
+      <label for="tableSawKerf">Table Saw Kerf (in):</label><br />
+      <input type="number" name="tableSawKerf" /><br />
+
+      <label for="finalPatternThickness">Final Pattern Thickness (in):</label><br />
+      <input type="number" name="finalPatternThickness" /><br />
+
+      <label for="desiredLength">Desired Length (in):</label><br />
+      <input type="number" name="desiredLength" /><br />
+
+      <label for="desiredWidth">Desired Width (in):</label><br />
+      <input type="number" name="desiredWidth" /><br />
+
+      <label for="panelLength">Panel Length (in):</label><br />
+      <input type="number" name="panelLength" /><br />
+      <span id="panelLengthError" class="errorMessage"></span>
+    </form>
+
+    <button type="button">Calculate</button>
+    <button type="reset">Reset</button>
+
+    <h2>Calculated Values:</h2>
+    <div id="results">
+      <p>Panel Width: <span id="panelWidth"></span></p>
+    </div>
+    <script src="./scripts.js"></script>
+  </body>
+</html>
