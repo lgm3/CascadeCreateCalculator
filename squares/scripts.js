@@ -14,6 +14,7 @@ window.onload = () => {
   );
   const hardwoodLengthEl = document.getElementById("hardwoodLength");
   const hardwoodWidthEl = document.getElementById("hardwoodWidth");
+  const panelLengthErrorEl = document.getElementById("panelLengthError");
 
   // Add click event to the Calculate button
   calculateButtonEl.addEventListener("click", () => {
@@ -25,11 +26,23 @@ window.onload = () => {
     const miterStripWidth = parseFloat(inputs[5].value) || 0;
     const panelLength = parseFloat(inputs[6].value) || 0;
 
+    // Ensure panelLength is within constraints
+    if (panelLength <= miterStripWidth || panelLength > 12) {
+      panelLengthErrorEl.textContent = `Panel Length must be between ${miterStripWidth.toFixed(
+        2
+      )} and 12 inches.`;
+      panelLengthErrorEl.style.display = "block";
+      return;
+    } else {
+      panelLengthErrorEl.style.display = "none";
+    }
+
     // Perform calculations
     const nTilesHigh = desiredLength / miterStripWidth;
     const nTilesWide = desiredWidth / miterStripWidth;
     const nTiles = nTilesHigh * nTilesWide;
-    const linearInchOfMiterLog = nTiles * finalPatternThickness;
+    const linearInchOfMiterLog =
+      nTiles * finalPatternThickness * (1 + tableSawKerf);
     const linearInchOfMiterStrip = linearInchOfMiterLog * 2;
     const nTwelveInchMiterStripSections = Math.ceil(
       linearInchOfMiterStrip / panelLength
@@ -37,10 +50,13 @@ window.onload = () => {
     const nTwelveInchHardwoodStripSections = Math.ceil(
       linearInchOfMiterLog / panelLength
     );
-    const panelWidth =
+    let panelWidth =
       (nTwelveInchMiterStripSections - 2) *
         (2 * miterStripWidth - plywoodThickness) +
       (nTwelveInchMiterStripSections - 1) * tableSawKerf;
+    if (panelWidth <= miterStripWidth + tableSawKerf) {
+      panelWidth = miterStripWidth + tableSawKerf;
+    }
     const hardwoodMinThickness =
       miterStripWidth - plywoodThickness + tableSawKerf;
     const hardwoodLength = panelLength;
