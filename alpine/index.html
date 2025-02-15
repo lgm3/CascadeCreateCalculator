@@ -10,12 +10,6 @@
   <body>
     <h1>Patterned Plywood Calculator - Alpine</h1>
     <form>
-      <label for="desiredWidth">Desired Width (in):</label><br />
-      <input type="number" name="desiredWidth" /><br />
-
-      <label for="desiredLength">Desired Length (in):</label><br />
-      <input type="number" name="desiredLength" /><br />
-
       <label for="plywoodThickness">Plywood Thickness (in):</label><br />
       <input type="number" name="plywoodThickness" /><br />
 
@@ -25,11 +19,18 @@
       <label for="finalPatternThickness">Final Pattern Thickness (in):</label><br />
       <input type="number" name="finalPatternThickness" /><br />
 
+      <label for="desiredLength">Desired Length (in):</label><br />
+      <input type="number" name="desiredLength" /><br />
+
+      <label for="desiredWidth">Desired Width (in):</label><br />
+      <input type="number" name="desiredWidth" /><br />
+
       <label for="miterStripWidth">Miter strip width (in):</label><br />
       <input type="number" name="miterStripWidth" /><br />
 
       <label for="panelLength">Panel Length (in):</label><br />
       <input type="number" name="panelLength" /><br />
+      <span id="panelLengthError" class="errorMessage"></span>
     </form>
 
     <button type="button">Calculate</button>

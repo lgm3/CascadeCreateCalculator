@@ -9,16 +9,28 @@ window.onload = () => {
 
   // Get result elements
   const panelWidthEl = document.getElementById("panelWidth");
+  const panelLengthErrorEl = document.getElementById("panelLengthError");
 
   // Add click event to the Calculate button
   calculateButtonEl.addEventListener("click", () => {
-    const desiredWidth = parseFloat(inputs[0].value) || 0;
-    const desiredLength = parseFloat(inputs[1].value) || 0;
-    const plywoodThickness = parseFloat(inputs[2].value) || 0;
-    const tableSawKerf = parseFloat(inputs[3].value) || 0;
-    const finalPatternThickness = parseFloat(inputs[4].value) || 0;
+    const plywoodThickness = parseFloat(inputs[0].value) || 0;
+    const tableSawKerf = parseFloat(inputs[1].value) || 0;
+    const finalPatternThickness = parseFloat(inputs[2].value) || 0;
+    const desiredLength = parseFloat(inputs[3].value) || 0;
+    const desiredWidth = parseFloat(inputs[4].value) || 0;
     const miterStripWidth = parseFloat(inputs[5].value) || 0;
     const panelLength = parseFloat(inputs[6].value) || 0;
+
+    // Ensure panelLength is within constraints
+    if (panelLength <= miterStripWidth || panelLength > 12) {
+      panelLengthErrorEl.textContent = `Panel Length must be between ${miterStripWidth.toFixed(
+        2
+      )} and 12 inches.`;
+      panelLengthErrorEl.style.display = "block";
+      return;
+    } else {
+      panelLengthErrorEl.style.display = "none";
+    }
 
     // Perform calculations
     const nTilesHigh = Math.ceil(
@@ -38,15 +50,19 @@ window.onload = () => {
           Math.sqrt(0.5 * (miterStripWidth - plywoodThickness) ** 2))
     );
     const nTiles = nTilesHigh * nTilesWide;
-    const linearInchOfMiterLog = nTiles * finalPatternThickness;
+    const linearInchOfMiterLog =
+      nTiles * finalPatternThickness * (1 + tableSawKerf);
     const linearInchOfMiterStrip = linearInchOfMiterLog * 2;
     const nTwelveInchMiterStripSections = Math.ceil(
       linearInchOfMiterStrip / panelLength
     );
-    const panelWidth =
+    let panelWidth =
       (nTwelveInchMiterStripSections - 2) *
         (2 * miterStripWidth - plywoodThickness) +
       (nTwelveInchMiterStripSections - 1) * tableSawKerf;
+    if (panelWidth <= miterStripWidth + tableSawKerf) {
+      panelWidth = miterStripWidth + tableSawKerf;
+    }
 
     // Update the HTML elements
     panelWidthEl.textContent = panelWidth.toFixed(2);
